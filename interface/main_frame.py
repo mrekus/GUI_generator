@@ -6,6 +6,9 @@ import os.path
 
 class MainFrame:
     def __init__(self, master):
+        self.checkBox = ctk.IntVar()
+
+        self.check = ctk.CTkCheckBox(text="Main Frame")
         self.label_file_explorer = ctk.CTkLabel(
             master, text="No image uploaded!", text_font=("courier", 12, "bold")
         )
@@ -20,6 +23,7 @@ class MainFrame:
             command=self.browse_files,
         )
 
+        self.check.place(x=50, y=200)
         self.label_file_explorer.place(x=300, y=50)
         self.button_explore.place(x=50, y=100)
 
