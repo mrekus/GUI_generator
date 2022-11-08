@@ -1,5 +1,5 @@
 import cv2
-from generator.code_strings import frame_size, name_main, imports
+from generator.code_strings import frame_size, name_main, imports, button_class
 
 
 class FrameGenerator:
@@ -14,11 +14,15 @@ class FrameGenerator:
         return height, width
 
     def generate_frame(self):
+        fname = "generated.py"
+        buttons = button_class.create_button_class(2)
+        with open(fname, "w") as f:
+            f.write(imports.tk + "\n\n")
+            for button in buttons.values():
+                f.write(button + "\n")
+
         height, width = self.read_dimensions()
         if self.checkbox_state == 1:
-            fname = "generated.py"
-
-            with open(fname, "w") as f:
-                f.write(imports.tk + "\n\n")
+            with open(fname, "a") as f:
                 f.write(frame_size.frame_mainloop + "\n")
                 f.write(name_main.name_main.format(width=width, height=height))

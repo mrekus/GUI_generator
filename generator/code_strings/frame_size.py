@@ -4,4 +4,5 @@ def main():
     window.geometry("{width}x{height}")
     window.resizable(False, False)
     window.title("test")
-    window.mainloop()"""
+    window.mainloop()
+"""
