@@ -1,0 +1,1 @@
+from widget_finder.button_finder import button_info

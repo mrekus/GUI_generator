@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 
-def button_coordinates():
+def button_info():
     im = cv2.imread("test.png")
 
     blue = [255, 0, 0]
@@ -12,15 +12,15 @@ def button_coordinates():
     unx = np.unique(x)
     uny = np.unique(y)
 
-    button1x = [unx[0]]
-    button2x = []
+    button2x = [unx[0]]
+    button1x = []
     start = unx[0]
     for i in unx[1:]:
         if start + 1 == i:
-            button1x.append(i)
+            button2x.append(i)
             start = i
         else:
-            button2x.append(i)
+            button1x.append(i)
 
     button1y = [uny[0]]
     button2y = []
